@@ -1,6 +1,6 @@
 # CareConnect Style System Reference
 
-This document provides a comprehensive overview of all styles, typography, sizing, colors, and design tokens used in the CareConnect healthcare application.
+This document provides a comprehensive overview of all styles, typography, sizing, colors, and design tokens used in the CareConnect healthcare application. This reference is designed to help with cross-platform implementations (e.g., Flutter/Dart conversions).
 
 ---
 

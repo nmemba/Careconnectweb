@@ -1,6 +1,6 @@
 # CareConnect Healthcare Application
 
-A comprehensive **Progressive Web App (PWA)** for healthcare management with left-hand accessibility framework, medication management, and offline capabilities. Built with React, TypeScript, and Tailwind CSS.
+A comprehensive mobile healthcare application with left-hand accessibility framework, medication management, and PWA capabilities.
 
 ## 🚀 Quick Start
 
