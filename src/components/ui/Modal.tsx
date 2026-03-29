@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { X } from 'lucide-react';
-import { IconButton } from './Button';
+import { IconButton } from './button';
 
 interface ModalProps {
   isOpen: boolean;

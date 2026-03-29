@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import * as TabsPrimitive from "@radix-ui/react-tabs@1.1.3";
+import * as TabsPrimitive from "@radix-ui/react-tabs";
 
 import { cn } from "./utils";
 
@@ -63,4 +63,18 @@ function TabsContent({
   );
 }
 
-export { Tabs, TabsList, TabsTrigger, TabsContent };
+function VerticalTabs({
+  className,
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.Root>) {
+  return (
+    <TabsPrimitive.Root
+      data-slot="tabs"
+      orientation="vertical"
+      className={cn("flex flex-row gap-6", className)}
+      {...props}
+    />
+  );
+}
+
+export { Tabs, TabsList, TabsTrigger, TabsContent, VerticalTabs };

@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Slot } from "@radix-ui/react-slot@1.1.2";
-import { cva, type VariantProps } from "class-variance-authority@0.7.1";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "./utils";
 
@@ -43,4 +43,22 @@ function Badge({
   );
 }
 
-export { Badge, badgeVariants };
+function DotBadge({ className, color = 'primary', ...props }: React.ComponentProps<"span"> & { color?: string }) {
+  const colorClasses: Record<string, string> = {
+    primary: 'bg-primary',
+    secondary: 'bg-secondary',
+    destructive: 'bg-destructive',
+    success: 'bg-green-500',
+    warning: 'bg-orange-500',
+    info: 'bg-blue-500',
+  };
+
+  return (
+    <span className={cn("flex items-center gap-1.5", className)} {...props}>
+      <span className={cn("h-2 w-2 rounded-full", colorClasses[color] || 'bg-gray-400')} />
+      {props.children}
+    </span>
+  );
+}
+
+export { Badge, DotBadge, badgeVariants };

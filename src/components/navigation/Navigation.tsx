@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   Home,
   Pill,
@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useAccessibility } from '../../contexts/AccessibilityContext';
-import { IconButton } from '../ui/Button';
+import { Button, IconButton } from '../ui/button';
 
 interface NavItem {
   label: string;

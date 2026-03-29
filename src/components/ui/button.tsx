@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Slot } from "@radix-ui/react-slot@1.1.2";
-import { cva, type VariantProps } from "class-variance-authority@0.7.1";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "./utils";
 
@@ -39,10 +39,14 @@ function Button({
   variant,
   size,
   asChild = false,
+  leftIcon,
+  rightIcon,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
+    leftIcon?: React.ReactNode;
+    rightIcon?: React.ReactNode;
   }) {
   const Comp = asChild ? Slot : "button";
 
@@ -51,8 +55,37 @@ function Button({
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
-    />
+    >
+      {leftIcon && <span className="inline-flex shrink-0">{leftIcon}</span>}
+      {props.children}
+      {rightIcon && <span className="inline-flex shrink-0">{rightIcon}</span>}
+    </Comp>
   );
 }
 
-export { Button, buttonVariants };
+function IconButton({
+  className,
+  variant = "ghost",
+  size = "icon",
+  icon,
+  label,
+  ...props
+}: React.ComponentProps<typeof Button> & {
+  icon?: React.ReactNode;
+  label?: string;
+}) {
+  return (
+    <Button
+      className={className}
+      variant={variant}
+      size={size}
+      aria-label={label}
+      title={label}
+      {...props}
+    >
+      {icon || props.children}
+    </Button>
+  );
+}
+
+export { Button, IconButton, buttonVariants };
