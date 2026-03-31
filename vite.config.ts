@@ -1,28 +1,30 @@
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-  import { defineConfig } from 'vite';
-  import react from '@vitejs/plugin-react';
-  import tailwindcss from '@tailwindcss/vite';
-  import path from 'path';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-  export default defineConfig({
-    plugins: [react(), tailwindcss()],
-    resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
-      alias: {
-        '@': path.resolve(__dirname, './src'),
-        '@components': path.resolve(__dirname, './src/components'),
-        '@contexts': path.resolve(__dirname, './src/contexts'),
-        '@utils': path.resolve(__dirname, './src/utils'),
-        '@pages': path.resolve(__dirname, './src/pages'),
-        '@tests': path.resolve(__dirname, './src/tests'),
-      },
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      '@components': path.resolve(__dirname, './src/components'),
+      '@contexts': path.resolve(__dirname, './src/contexts'),
+      '@utils': path.resolve(__dirname, './src/utils'),
+      '@pages': path.resolve(__dirname, './src/pages'),
+      '@tests': path.resolve(__dirname, './src/tests'),
     },
-    build: {
-      target: 'esnext',
-      outDir: 'build',
-    },
-    server: {
-      port: 3000,
-      open: true,
-    },
-  });
+  },
+  build: {
+    target: 'esnext',
+    outDir: 'dist',
+  },
+  server: {
+    port: 3000,
+    open: true,
+  },
+});
